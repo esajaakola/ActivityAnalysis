@@ -5,9 +5,24 @@
 analyse <- function() {
  
 ##    1. Merges the training and the test sets to create one data set.
-    ## Read train & test data from files
-    train <- read.table("UCI HAR Dataset/train/X_train.txt", header=FALSE)
-    test <- read.table("UCI HAR Dataset/test/X_test.txt", header=FALSE)
+    ## Read train data
+    train_data <- read.table("UCI HAR Dataset/train/X_train.txt", header=FALSE)
+    train_subjects <- read.table("UCI HAR Dataset/train/subject_train.txt", header=FALSE)
+    train_activities <- read.table("UCI HAR Dataset/train/y_train.txt", header=FALSE)
+    ## Add subjects to dataset
+    train <- cbind(train_subjects, train_data)
+    ## Add activities to dataset
+    train <- cbind(train_activities, train)
+      
+    ## Read test data
+    test_data <- read.table("UCI HAR Dataset/test/X_test.txt", header=FALSE)
+    test_subjects <- read.table("UCI HAR Dataset/test/subject_test.txt", header=FALSE)
+    test_activities <- read.table("UCI HAR Dataset/test/y_test.txt", header=FALSE)
+    # Add subject column to dataset
+    test <- cbind(test_subjects, test_data)
+    ## Add activity column to dataset
+    test <- cbind(test_activities, test)
+    
     ## Combine datasets
     total <- rbind(train, test)
     total
