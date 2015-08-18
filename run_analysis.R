@@ -25,11 +25,34 @@ analyse <- function() {
     
     ## Combine datasets
     total <- rbind(train, test)
-    total
     
 ##    2. Extracts only the measurements on the mean and standard deviation for each measurement.
-    ## Remove all columns excluding MEAN & STD related ones
+    ## Create new data frame with following columns 
+    ## 1 activity
+    ## 2 subject
+    ## all columns related to mean or std:
+    ## 3-8 tBodyAcc
+    ## 43-48 tGravityAcc
+    ## 83-88 tBodyAccJerk
+    ## 123-128 tBodyGyro
+    ## 163-168 tBodyGyroJerk
+    ## 203-204 tBodyAccMag
+    ## 216-217 tGravityAccMag
+    ## 229-230 tBodyAccJerkMag
+    ## 242-243 tBodyGyroMag
+    ## 255-256 tBodyGyroJerkMag
+    ## 268-273 fBodyAcc
+    ## 347-352 fBodyAccJerk
+    ## 426-431 fBodyGyro
+    ## 505-506 fBodyAccMag
+    ## 518-519 fBodyBodyAccJerkMag
+    ## 531-532 fBodyBodyGyroMAg
+    ## 544-545 fBodyBodyGyroJerkMag
+        ## -> 66 mean&std columns selected
 
+    filtered <- total[, c(1,2,3:8,43:48,83:88,123:128,163:168,203:204,216:217,229:230,242:243,255:256,268:273,347:352,426:431,505:506,518:519,531:532,544:545)]
+    filtered
+    
 ##    3. Uses descriptive activity names to name the activities in the data set
     ## Name Rows / Activities
 
