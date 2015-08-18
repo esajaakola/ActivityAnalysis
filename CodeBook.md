@@ -16,8 +16,9 @@
 
 
 ### Step 3: Create total dataframe by combining test & train dataframes
+* Add test rows into end of train rows
 
-### Step 4: Select columns related to mean and standard deviation. Following columns were selected from the orginal dataset:
+### Step 4: Select columns related to mean and standard deviation. Following 66 columns were selected from the orginal dataset:
 * 1 tBodyAcc-mean()-X
 * 2 tBodyAcc-mean()-Y
 * 3 tBodyAcc-mean()-Z
