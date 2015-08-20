@@ -86,4 +86,13 @@
 * 542 fBodyBodyGyroJerkMag-mean()
 * 543 fBodyBodyGyroJerkMag-std()
 
-### Step 5: TODO
+### Step 5: Convert activity numbers to readable form in column 1
+* Conversion used:
+* 1 == WALKING
+* 2 == WALKING_UPSTAIRS
+* 3 == WALKING_DOWNSTAIRS
+* 4 == SITTING
+* 5 == STANDING
+* 6 == LAYING
+
+### Step 6: TODO

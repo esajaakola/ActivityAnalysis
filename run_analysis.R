@@ -51,11 +51,19 @@ analyse <- function() {
         ## -> 66 mean&std columns selected
 
     filtered <- total[, c(1,2,3:8,43:48,83:88,123:128,163:168,203:204,216:217,229:230,242:243,255:256,268:273,347:352,426:431,505:506,518:519,531:532,544:545)]
-    filtered
-    
-##    3. Uses descriptive activity names to name the activities in the data set
-    ## Name Rows / Activities
 
+##    3. Uses descriptive activity names to name the activities in the data set
+    ## Convert activity names to readable form
+    for(i in 1:nrow(filtered)) {
+        x = as.integer(filtered[i,1])
+        if(x == 1) filtered[i,1] <- "WALKING"
+        if(x == 2) filtered[i,1] <- "WALKING_UPSTAIRS"
+        if(x == 3) filtered[i,1] <- "WALKING_DOWNSTAIRS"
+        if(x == 4) filtered[i,1] <- "SITTING"
+        if(x == 5) filtered[i,1] <- "STANDING"
+        if(x == 6) filtered[i,1] <- "LAYING"
+    }
+    filtered
 ##    4. Appropriately labels the data set with descriptive variable names.
     ## Name columns
 
