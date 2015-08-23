@@ -2,20 +2,20 @@
 
  run.analysis.R does the following steps to generate analysed data file
 
-### Step 1: Create train data frame
-* Create data frame by reading train/X_train.txt
-* Add subject data (train/subject_train.txt) into created data frame as first column
+### Step 1: Read train data
+* Read training data (train/X_train.txt)
+* Add subject data (train/subject_train.txt) into training data as first column
 * Add activity data (train/y_train.txt) into created data frame as first column
-* Data frame format after previous steps: col_1 = Activity, col_2 = Subject, col_3-563 = Data
+* Data format after previous steps: col_1 = Activity, col_2 = Subject, col_3-563 = Training Data
 
-### Step 2: Create test data frame
-* Create data frame by reading test/X_test.txt
-* Add subject data (test/subject_test.txt) into created data frame as first column
-* Add activity data (test/y_train.txt) into created data frame as first column
-* Data frame format after previous steps: col_1 = Activity, col_2 = Subject, col_3-563 = Data
+### Step 2: Read test data
+* Read test data (test/X_test.txt)
+* Add subject data (test/subject_test.txt) into test data as first column
+* Add activity data (test/y_train.txt) into test data as first column
+* Data format after previous steps: col_1 = Activity, col_2 = Subject, col_3-563 = Test Data
 
 
-### Step 3: Create total dataframe by combining test & train dataframes
+### Step 3: Combine test & train data
 * Add test rows into end of train rows
 
 ### Step 4: Select columns related to mean and standard deviation. Following 66 columns were selected from the orginal dataset:
@@ -87,7 +87,7 @@
 * 543 fBodyBodyGyroJerkMag-std()
 
 ### Step 5: Convert activity numbers to readable form in column 1
-* Conversion used:
+* Conversion done based on following activity names (from file activity_labels.txt):
 * 1 == WALKING
 * 2 == WALKING_UPSTAIRS
 * 3 == WALKING_DOWNSTAIRS
@@ -95,8 +95,9 @@
 * 5 == STANDING
 * 6 == LAYING
 
-### Step 6: Add readable column names into data frame using data from features.txt file
-* Column names selected in Step 4 added into new dataset as headers. New dataset has following columns:
+### Step 6: Convert column names into readable form
+* Columns selected in Step 4 added into new dataset as column names.
+* New dataset has following columns:
 * 1 Activity
 * 2 Subject
 * 3 tBodyAcc-mean()-X
@@ -166,4 +167,8 @@
 * 67 fBodyBodyGyroJerkMag-mean()
 * 68 fBodyBodyGyroJerkMag-std()
 
-### Step 7: TODO
+### Step 7: Calculate means for subject + activity pairs
+* Calculates means for all subject + activity pairs
+* Each subject + activity row appear only once in final output file
+
+### Step 8: Write analysed data in file data.txt
